@@ -5,9 +5,10 @@ namespace CYFang.Log
 {
     public static class Log
     {
+        //F6
         public static string FilePath { set; get; }
 
-        public static void writeLog(string message)
+        public static void WriteLog(string message)
         {
             if (string.IsNullOrEmpty(FilePath))
             {
@@ -22,6 +23,11 @@ namespace CYFang.Log
             }
             string log = message + Environment.NewLine;
             File.AppendAllText(FilePath, log);
+        }
+
+        public static void WriteLog(string tag, string message)
+        {
+            WriteLog(tag + ":" + message);
         }
     }
 }
